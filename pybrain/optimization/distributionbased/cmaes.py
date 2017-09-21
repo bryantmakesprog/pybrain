@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Tom Schaul, tom@idsia.ch; Sun Yi, yi@idsia.ch'
 
@@ -31,7 +31,7 @@ class CMAES(ContinuousOptimizer):
         # Strategy parameter setting: Selection
         # population size, offspring number
         self.mu = int(floor(self.batchSize / 2))        # number of parents/points for recombination
-        self.weights = log(self.mu + 1) - log(array(range(1, self.mu + 1)))      # use array
+        self.weights = log(self.mu + 1) - log(array(list(range(1, self.mu + 1))))      # use array
         self.weights /= sum(self.weights)     # normalize recombination weights array
         self.muEff = sum(self.weights) ** 2 / sum(power(self.weights, 2)) # variance-effective size of mu
 
@@ -66,8 +66,8 @@ class CMAES(ContinuousOptimizer):
         arfitness, arindex = sorti(arfitness)  # minimization
         arz = arz[:, arindex]
         arx = arx[:, arindex]
-        arzsel = arz[:, range(self.mu)]
-        arxsel = arx[:, range(self.mu)]
+        arzsel = arz[:, list(range(self.mu))]
+        arxsel = arx[:, list(range(self.mu))]
         arxmut = arxsel - tile(self.center.reshape(self.numParameters, 1), (1, self.mu))
 
         zmean = dot(arzsel, self.weights)

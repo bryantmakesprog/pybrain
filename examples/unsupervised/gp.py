@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 #!/usr/bin/env python
 """ A simple example on how to use the GaussianProcess class

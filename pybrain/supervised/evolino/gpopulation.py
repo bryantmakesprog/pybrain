@@ -95,7 +95,7 @@ class SimplePopulation(Population):
 
     def clearFitness(self):
         """ Clears all stored fitness values """
-        for (ind, _) in self._fitness.items():
+        for (ind, _) in list(self._fitness.items()):
             self._fitness[ind] = -Infinity
 #        self._fitness.clear()
 
@@ -139,7 +139,7 @@ class SimplePopulation(Population):
     def getSortedIndividualList(self):
         """ Returns a sorted list of all individuals with descending fitness values. """
         fitness = self._fitness
-        return sorted(iter(fitness.keys()), key=lambda k:-fitness[k])
+        return sorted(iter(list(fitness.keys())), key=lambda k:-fitness[k])
 
 
     def getIndividualsN(self):

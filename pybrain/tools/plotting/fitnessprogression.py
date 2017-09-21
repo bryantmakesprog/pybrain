@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 """ a type of plots used so frequently that I think they merit their own utility """
 

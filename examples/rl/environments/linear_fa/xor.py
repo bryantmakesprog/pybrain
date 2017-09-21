@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 """ Toy example for RL with linear function approximation. 
 This illustrates how a 'AND'-state-space can be solved, but not 

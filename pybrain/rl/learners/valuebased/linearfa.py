@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Tom Schaul, tom@idsia.ch'
 
@@ -268,13 +268,13 @@ class LearningTester(unittest.TestCase):
                 for a in l:
                     print((fListToString(a[0], 2)        ))
         for _, l in r:        
-            self.assertAlmostEquals(min(l[0][0]), 1, places=0) 
-            self.assertAlmostEquals(max(l[0][0]), 1, places=0) 
-            self.assertAlmostEquals(2 * min(l[1][0]), 1, places=0) 
-            self.assertAlmostEquals(2 * max(l[1][0]), 1, places=0) 
-            self.assertAlmostEquals(min(l[2][0]), 0, places=0) 
-            self.assertAlmostEquals(max(l[2][0]), len(l[2][0]) - 1, places=0) 
-            self.assertAlmostEquals(min(l[3][0]), max(l[3][0]), places=0)                 
+            self.assertAlmostEqual(min(l[0][0]), 1, places=0) 
+            self.assertAlmostEqual(max(l[0][0]), 1, places=0) 
+            self.assertAlmostEqual(2 * min(l[1][0]), 1, places=0) 
+            self.assertAlmostEqual(2 * max(l[1][0]), 1, places=0) 
+            self.assertAlmostEqual(min(l[2][0]), 0, places=0) 
+            self.assertAlmostEqual(max(l[2][0]), len(l[2][0]) - 1, places=0) 
+            self.assertAlmostEqual(min(l[3][0]), max(l[3][0]), places=0)                 
     
     def testSingleState(self):
         r = self.runSequences(num_actions=3, num_features=2, num_states=1, num_interactions=1000,
@@ -285,10 +285,10 @@ class LearningTester(unittest.TestCase):
                 for a in l:
                     print((fListToString(a[0], 2)        ))
         for _, l in r:
-            self.assertAlmostEquals(min(l[0][0]), max(l[0][0]), places=0) 
-            self.assertAlmostEquals(min(l[1][0]), max(l[1][0]), places=0)
-            self.assertAlmostEquals(min(l[2][0]) + len(l[2][0]) - 1, max(l[2][0]), places=0)             
-            self.assertAlmostEquals(min(l[3][0]), max(l[3][0]), places=0)                         
+            self.assertAlmostEqual(min(l[0][0]), max(l[0][0]), places=0) 
+            self.assertAlmostEqual(min(l[1][0]), max(l[1][0]), places=0)
+            self.assertAlmostEqual(min(l[2][0]) + len(l[2][0]) - 1, max(l[2][0]), places=0)             
+            self.assertAlmostEqual(min(l[3][0]), max(l[3][0]), places=0)                         
                         
     def testSingleAction(self):        
         r = self.runSequences(num_actions=1, r_states=list(map(array, [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0]])),
@@ -299,10 +299,10 @@ class LearningTester(unittest.TestCase):
                 for a in l:
                     print((fListToString(a, 2)        ))
         for _, l in r:
-            self.assertAlmostEquals(min(l[0]), max(l[0]), places=0) 
-            self.assertAlmostEquals(min(l[1]), max(l[1]), places=0)
-            self.assertAlmostEquals(min(l[2]), max(l[2]), places=0)             
-            self.assertAlmostEquals(max(l[3]) - 1, min(l[3]), places=0) 
+            self.assertAlmostEqual(min(l[0]), max(l[0]), places=0) 
+            self.assertAlmostEqual(min(l[1]), max(l[1]), places=0)
+            self.assertAlmostEqual(min(l[2]), max(l[2]), places=0)             
+            self.assertAlmostEqual(max(l[3]) - 1, min(l[3]), places=0) 
             
     def testSimple(self):        
         r = self.runSequences(num_actions=3, num_features=5, num_states=4, num_interactions=2000,
@@ -313,10 +313,10 @@ class LearningTester(unittest.TestCase):
                 for a in l:
                     print((fListToString(a[0], 2)        ))
         for _, l in r:
-            self.assertAlmostEquals(min(l[0][0]), max(l[0][0]), places=0) 
-            self.assertAlmostEquals(min(l[1][0]), max(l[1][0]), places=0)
-            self.assertAlmostEquals(min(l[2][0]) + len(l[2][0]) - 1, max(l[2][0]), places=0)             
-            self.assertAlmostEquals(min(l[3][0]), max(l[3][0]), places=0) 
+            self.assertAlmostEqual(min(l[0][0]), max(l[0][0]), places=0) 
+            self.assertAlmostEqual(min(l[1][0]), max(l[1][0]), places=0)
+            self.assertAlmostEqual(min(l[2][0]) + len(l[2][0]) - 1, max(l[2][0]), places=0)             
+            self.assertAlmostEqual(min(l[3][0]), max(l[3][0]), places=0) 
             
     def runSequences(self, num_actions=1, num_features=1, num_states=1,
                      num_interactions=10000, gamma=None, _lambda=None, lr=None, r_states=None):

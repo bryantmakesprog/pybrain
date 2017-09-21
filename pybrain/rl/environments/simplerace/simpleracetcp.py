@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Julian Togelius, julian@idsia.ch'
 

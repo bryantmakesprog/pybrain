@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 """This module provides functionality to use pybrain with rlglue and to use it
 for the rlcompetition.
@@ -283,7 +283,7 @@ class RlCompBenchmark(object):
                 raise e
 
         for name, agent_klass in self.agents:
-            todo = range(self.loops)
+            todo = list(range(self.loops))
             if not self.overwrite:
                 # If overwrite is set to false, we will only do the experiments
                 # that have not been done.

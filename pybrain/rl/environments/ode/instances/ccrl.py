@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Frank Sehnke, sehnke@in.tum.de'
 
@@ -94,7 +94,7 @@ class CCRLEnvironment(ODEEnvironment):
         f.close()
         try:
             # filter all xode "world" objects from root, take only the first one
-            world = filter(lambda x: isinstance(x, xode.parser.World), self.root.getChildren())[0]
+            world = [x for x in self.root.getChildren() if isinstance(x, xode.parser.World)][0]
         except IndexError:
             # malicious format, no world tag found
             print(("no <world> tag found in " + filename + ". quitting."))
@@ -103,7 +103,7 @@ class CCRLEnvironment(ODEEnvironment):
         self._setWorldParameters()
         try:
             # filter all xode "space" objects from world, take only the first one
-            space = filter(lambda x: isinstance(x, xode.parser.Space), world.getChildren())[0]
+            space = [x for x in world.getChildren() if isinstance(x, xode.parser.Space)][0]
         except IndexError:
             # malicious format, no space tag found
             print(("no <space> tag found in " + filename + ". quitting."))

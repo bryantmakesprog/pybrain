@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Thomas Rueckstiess, ruecksti@in.tum.de'
 
@@ -181,7 +181,7 @@ class ODEEnvironment(Environment):
         f.close()
         try:
             # filter all xode "world" objects from root, take only the first one
-            world = filter(lambda x: isinstance(x, xode.parser.World), self.root.getChildren())[0]
+            world = [x for x in self.root.getChildren() if isinstance(x, xode.parser.World)][0]
         except IndexError:
             # malicious format, no world tag found
             print(("no <world> tag found in " + filename + ". quitting."))
@@ -190,7 +190,7 @@ class ODEEnvironment(Environment):
         self._setWorldParameters()
         try:
             # filter all xode "space" objects from world, take only the first one
-            space = filter(lambda x: isinstance(x, xode.parser.Space), world.getChildren())[0]
+            space = [x for x in world.getChildren() if isinstance(x, xode.parser.Space)][0]
         except IndexError:
             # malicious format, no space tag found
             print(("no <space> tag found in " + filename + ". quitting."))
@@ -292,7 +292,7 @@ class ODEEnvironment(Environment):
             body.name = node.getName()
             try:
                 # filter all xode geom objects and take the first one
-                xgeom = filter(lambda x: isinstance(x, xode.geom.Geom), node.getChildren())[0]
+                xgeom = [x for x in node.getChildren() if isinstance(x, xode.geom.Geom)][0]
             except IndexError:
                 return() # no geom object found, skip this node
             # get the real ode object

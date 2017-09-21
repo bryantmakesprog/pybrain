@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 #!/usr/bin/env python
 """ A simple recurrent neural network that detects parity for arbitrary sequences. """

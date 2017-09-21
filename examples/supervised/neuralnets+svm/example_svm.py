@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 #!/usr/bin/env python
 """ Example script for SVM classification using PyBrain and LIBSVM

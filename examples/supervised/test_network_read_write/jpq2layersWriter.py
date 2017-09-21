@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 from pybrain.structure import FeedForwardNetwork
 from pybrain.structure           import LinearLayer, SigmoidLayer

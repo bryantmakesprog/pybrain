@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Tom Schaul, tom@idsia.ch; Justin Bayer, bayerj@in.tum.de'
 
@@ -292,7 +292,7 @@ def memoize(func):
         args = tuple(args)
         # Make a set for checking in the cache, since the order of
         # .iteritems() is undefined
-        kwargs_set = frozenset(iter(kwargs.items()))
+        kwargs_set = frozenset(iter(list(kwargs.items())))
         if (args, kwargs_set) in cache:
             result = cache[args, kwargs_set]
         else:

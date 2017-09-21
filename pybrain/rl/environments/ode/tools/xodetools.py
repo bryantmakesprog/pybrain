@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Thomas Rueckstiess, ruecksti@in.tum.de'
 
@@ -248,7 +248,7 @@ class XODEfile(XMLstruct):
         f.write('<!--odeenvironment parameters\n')
         if len(self._pass) > 0:
             f.write('<passpairs>\n')
-            for pset in self._pass.values():
+            for pset in list(self._pass.values()):
                 f.write(str(tuple(pset)) + '\n')
         if self._centerOn is not None:
             f.write('<centerOn>\n')
@@ -264,7 +264,7 @@ class XODEfile(XMLstruct):
             outstr = sensor[0] + "("
             for val in sensor[1]:
                 outstr += ',' + repr(val)
-            for key, val in sensor[2].items():
+            for key, val in list(sensor[2].items()):
                 outstr += ',' + key + '=' + repr(val)
             outstr = outstr.replace('(,', '(') + ")\n"
             f.write(outstr)

@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = "Martin Felder, felder@in.tum.de"
 
@@ -311,7 +311,7 @@ class SequenceClassificationDataSet(SequentialDataSet, ClassificationDataSet):
                     'numSeqs':             self.getNumSequences(),
                     'maxLabelLength':      2 }
         dims = {}
-        for name, sz in dimsize.items():
+        for name, sz in list(dimsize.items()):
             dims[name] = d.def_dim(name, sz)
 
         # Create a netCDF record variables

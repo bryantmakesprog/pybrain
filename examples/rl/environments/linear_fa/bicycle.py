@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 """An attempt to implement Randlov and Alstrom (1998). They successfully
 use reinforcement learning to balance a bicycle, and to control it to drive

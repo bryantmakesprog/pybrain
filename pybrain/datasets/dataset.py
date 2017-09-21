@@ -297,7 +297,7 @@ class DataSet(Serializable):
         """Read an incomplete data set (option arraysonly) into the given one. """
         # FIXME: Obsolete! Kept here because of some old files...
         obj = cls(1, 1)
-        for key, val in pickle.load(file(filename)).items():
+        for key, val in list(pickle.load(file(filename)).items()):
             obj.setField(key, val)
         return obj
 
@@ -365,7 +365,7 @@ class DataSet(Serializable):
     def replaceNansByMeans(self):
         """Replace all not-a-number entries in the dataset by the means of the
         corresponding column."""
-        for d in self.data.values():
+        for d in list(self.data.values()):
             means = scipy.nansum(d[:self.getLength()], axis=0) / self.getLength()
             for i in range(self.getLength()):
                 for j in range(d.dim):

@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 #!/usr/bin/env python
 # Example script for feed-forward network usage in PyBrain.

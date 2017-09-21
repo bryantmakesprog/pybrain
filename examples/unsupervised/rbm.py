@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 #!/usr/bin/env python
 """ Miniscule restricted Boltzmann machine usage example """

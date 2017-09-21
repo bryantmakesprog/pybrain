@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 """ The functions implemented here are standard benchmarks from literature. """
 

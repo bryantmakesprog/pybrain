@@ -95,7 +95,7 @@ if __name__ == '__main__':
         plot(xs_blue, ys_blue, 'bo')
         show()
 
-    ballsizes = (len(ball) for ball in m.balls.values())
+    ballsizes = (len(ball) for ball in list(m.balls.values()))
     logging.info("Sizes of the balls: " + " ".join(str(i) for i in ballsizes))
 
     logging.info("Finished")

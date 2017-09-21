@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 
 __author__ = 'Thomas Rueckstiess, ruecksti@in.tum.de'
 
@@ -153,7 +153,7 @@ class XMLstruct:
     def scale(self, sc, scaleset=set([]), exclude=set([])):
         """for all tags not in the exclude set, scale all attributes whose names are in scaleset by the given factor"""
         if self.name not in exclude:
-            for name, val in self.tag.items():
+            for name, val in list(self.tag.items()):
                 if name in scaleset:
                     self.tag[name] = val * sc
         if self.hasSubtag():
@@ -175,7 +175,7 @@ class XMLstruct:
         # print(start tag, with attributes if present)
         if nAttr > 0:
             file.write(self._tab * depth + "<" + self.tag['myName'] + " " + \
-                ' '.join([name + '="' + str(val) + '"' for name, val in self.tag.items() \
+                ' '.join([name + '="' + str(val) + '"' for name, val in list(self.tag.items()) \
                 if name != 'myName' and name != 'Icontain']) + endmark + '\n')
         else:
             file.write(self._tab * depth + "<" + self.tag['myName'] + ">\n")

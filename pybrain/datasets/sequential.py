@@ -60,7 +60,7 @@ class SequentialDataSet(SupervisedDataSet):
         `index`.
 
         Each element is a tuple."""
-        return zip(*self.getSequence(index))
+        return list(zip(*self.getSequence(index)))
 
     def endOfSequence(self, index):
         """Return True if the marker was moved over the last element of

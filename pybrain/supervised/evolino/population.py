@@ -152,7 +152,7 @@ class EvolinoSubPopulation(SimplePopulation):
 
 
     def setArgs(self, **kwargs):
-        for key, val in kwargs.items():
+        for key, val in list(kwargs.items()):
             getattr(self, key)
             setattr(self, key, val)
 
